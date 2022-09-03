@@ -1,71 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_com_getx/app/models/auth/view/sign_in_view.dart';
+import 'package:flutter_com_getx/theme.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MainView());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MainView extends StatelessWidget {
+  const MainView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class Controller extends GetxController {
-  String text = '';
-
-  void changeText(String x) {
-    text = x;
-    update();
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key}) : super(key: key);
-
-  final textController = TextEditingController();
-
-  final Controller c = Get.put(Controller());
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              GetBuilder<Controller>(
-                init: Controller(),
-                builder: (_) {
-                  return Text('Mensagem: ${c.text}');
-                },
-              ),
-              TextFormField(
-                controller: textController,
-              ),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => c.changeText(textController.text),
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      theme: theme(),
+      home: const SignInView(),
     );
   }
 }
