@@ -21,7 +21,7 @@ class _BaseViewState extends State<BaseView> {
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
-        children: const [
+        children: [
           HomeView(),
           CartView(),
           OrderView(),
