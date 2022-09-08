@@ -11,3 +11,16 @@ abstract class CustomPadding {
   static double padding_3 = 12.0;
   static double padding_4 = 16.0;
 }
+
+abstract class CustomStyle {
+  static TextStyle title = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle price = const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Colors.blue,
+  );
+}

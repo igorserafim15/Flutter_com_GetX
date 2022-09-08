@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_com_getx/app/globals/custom.dart';
 import 'package:flutter_com_getx/app/globals/app_data.dart';
 import 'package:flutter_com_getx/app/models/home/view/components/category.dart';
+import 'package:flutter_com_getx/app/models/home/view/components/product_tile.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -61,7 +62,8 @@ class HomeView extends StatelessWidget {
                 ),
                 itemCount: items.length,
                 itemBuilder: (_, i) {
-                  return Container(color: Colors.red);
+                  final item = items[i];
+                  return ProductTile(item: item);
                 },
               ),
             )
