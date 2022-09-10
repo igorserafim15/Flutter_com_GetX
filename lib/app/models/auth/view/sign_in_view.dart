@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_com_getx/app/models/auth/view/sign_up_view.dart';
 import 'package:flutter_com_getx/app/globals/custom.dart';
-import 'package:flutter_com_getx/app/models/base/views/base_view.dart';
+import 'package:flutter_com_getx/app/models/auth/controller/sign_in_controller.dart';
+import 'package:flutter_com_getx/app/routes/pages.dart';
+import 'package:get/get.dart';
 
-class SignInView extends StatelessWidget {
+class SignInView extends GetView<SignInController> {
   const SignInView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(title: const Text('Login')),
       body: Center(
@@ -16,22 +16,23 @@ class SignInView extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(CustomPadding.padding_4),
             child: Form(
-              key: _formKey,
+              key: controller.formKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Campo obrigatório.';
-                      }
-                      return null;
-                    },
                     decoration: const InputDecoration(
                       labelText: 'Email',
                       prefixIcon: Icon(Icons.email),
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) return 'Email obrigatório';
+                      if (!GetUtils.isEmail(value)) {
+                        return 'Digite um email válido.';
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(height: CustomPadding.padding_4),
                   TextFormField(
@@ -42,17 +43,18 @@ class SignInView extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: CustomPadding.padding_4),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (context) => const BaseView(),
-                          ),
-                        );
-                      }
-                    },
-                    child: const Text('Entrar'),
+                  Obx(
+                    () => ElevatedButton(
+                      onPressed: () async {
+                        if (controller.formKey.currentState!.validate()) {
+                          await controller.signIn(email: '', password: '');
+                          Get.offAllNamed(Routes.home);
+                        }
+                      },
+                      child: controller.isLoading.value
+                          ? const CircularProgressIndicator()
+                          : const Text('Entrar'),
+                    ),
                   ),
                   TextButton(
                     onPressed: () {},
@@ -63,11 +65,7 @@ class SignInView extends StatelessWidget {
                     child: Divider(thickness: 1.5),
                   ),
                   OutlinedButton(
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const SignUpView(),
-                      ),
-                    ),
+                    onPressed: () => Get.toNamed(Routes.signup),
                     child: const Text('Criar conta'),
                   ),
                 ],

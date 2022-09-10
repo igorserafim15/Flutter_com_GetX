@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_com_getx/app/models/auth/view/sign_in_view.dart';
+import 'package:flutter_com_getx/app/routes/pages.dart';
 import 'package:flutter_com_getx/theme.dart';
 import 'package:get/get.dart';
 
@@ -12,11 +12,12 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: theme(),
-      home: const SignInView(),
+      initialRoute: Routes.signin,
+      getPages: Pages.routes,
     );
   }
 }
