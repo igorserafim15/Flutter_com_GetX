@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_com_getx/app/globals/custom.dart';
 import 'package:flutter_com_getx/app/globals/item_model.dart';
-import 'package:flutter_com_getx/app/helps/helps.dart';
+import 'package:flutter_com_getx/app/utils/utils.dart';
 import 'package:flutter_com_getx/app/models/components/quantity_component.dart';
 
 class ProductView extends StatefulWidget {

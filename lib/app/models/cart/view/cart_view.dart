@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_com_getx/app/globals/app_data.dart';
 import 'package:flutter_com_getx/app/globals/cart_model.dart';
 import 'package:flutter_com_getx/app/globals/custom.dart';
-import 'package:flutter_com_getx/app/helps/helps.dart';
+import 'package:flutter_com_getx/app/utils/utils.dart';
 import 'package:flutter_com_getx/app/models/cart/view/components/cart_tile.dart';
 
 class CartView extends StatefulWidget {
