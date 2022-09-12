@@ -1,5 +1,5 @@
 import 'package:flutter_com_getx/app/globals/item_model.dart';
-import 'package:flutter_com_getx/app/globals/user_model.dart';
+import 'package:flutter_com_getx/app/globals/user/user_model.dart';
 
 import 'cart_model.dart';
 
