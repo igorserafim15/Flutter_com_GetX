@@ -26,6 +26,8 @@ class ProfileView extends StatelessWidget {
         ),
         children: [
           TextFormField(
+            initialValue: controller.user.email,
+            readOnly: true,
             decoration: const InputDecoration(
               labelText: 'Email',
               prefixIcon: Icon(Icons.email),
@@ -33,6 +35,8 @@ class ProfileView extends StatelessWidget {
           ),
           SizedBox(height: CustomPadding.padding_4),
           TextFormField(
+            initialValue: controller.user.name,
+            readOnly: true,
             decoration: const InputDecoration(
               labelText: 'Nome',
               prefixIcon: Icon(Icons.person),
@@ -40,6 +44,8 @@ class ProfileView extends StatelessWidget {
           ),
           SizedBox(height: CustomPadding.padding_4),
           TextFormField(
+            initialValue: controller.user.phone,
+            readOnly: true,
             decoration: const InputDecoration(
               labelText: 'Celular',
               prefixIcon: Icon(Icons.phone),
@@ -47,6 +53,8 @@ class ProfileView extends StatelessWidget {
           ),
           SizedBox(height: CustomPadding.padding_4),
           TextFormField(
+            initialValue: controller.user.cpf,
+            readOnly: true,
             decoration: const InputDecoration(
               labelText: 'CPF',
               prefixIcon: Icon(Icons.notes_sharp),

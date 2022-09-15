@@ -17,12 +17,15 @@ dependencies:
   intl:
   http:
   flutter_secure_storage: ^6.0.0
+  json_serializable: ^6.3.2
+  json_annotation: ^4.6.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  build_runner: ^2.2.1
 
 flutter:
   uses-material-design: true
