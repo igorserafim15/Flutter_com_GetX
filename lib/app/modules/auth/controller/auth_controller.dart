@@ -10,6 +10,8 @@ class AuthController extends GetxController {
   RxBool isLoading = false.obs;
   User user = User();
 
+  String get name => 'Loja legal!';
+
   @override
   void onInit() async {
     super.onInit();

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_com_getx/app/globals/custom/custom.dart';
 import 'package:flutter_com_getx/app/globals/app_data.dart';
+import 'package:flutter_com_getx/app/modules/home/controller/home_controller.dart';
+import 'package:get/get.dart';
 import 'widgets/product_tile.dart';
 import 'widgets/category.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
 
   @override
@@ -12,7 +14,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Loja'),
+        title: Text(controller.nomeHome),
         actions: [
           IconButton(
             onPressed: () {},
